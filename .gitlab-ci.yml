@@ -1,0 +1,19 @@
+image: node:11.10.0
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  script:
+    - npm install
+    - npm run build
+    - rm -rf public
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
