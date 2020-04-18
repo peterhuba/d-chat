@@ -1,11 +1,11 @@
 # d-chat
-## Decentralized, open messaging app based on IPFS and OrbitDB with peer-to-peer web page hosting
+## Decentralized messaging app based on IPFS and OrbitDB with peer-to-peer web page hosting
 
 React-based chat app POC that demonstrates advantages of a decentralized architecture in a web context. It can serve as a reliable communication platform thanks to the [IPFS](https://ipfs.io)-based [OrbitDB](https://github.com/orbitdb/orbit-db), a distributed, serverless, peer-to-peer database.
 
 By running an IPFS node in the service worker and pulling the web pages' source there, the app itself can be a server and contibute to hosting the website. This, besides offering efficient scaling, improves reliability, since new users can still load the page when the origin server is not available.
 
-<img src="https://user-images.githubusercontent.com/22678054/64920429-55854200-d7c0-11e9-94f7-4efa1ca0b179.png" height="400">
+<img src="https://user-images.githubusercontent.com/22678054/64920429-55854200-d7c0-11e9-94f7-4efa1ca0b179.png" height="350">
 
 ## How does it work?
 
@@ -19,7 +19,7 @@ By running an IPFS node in the service worker and pulling the web pages' source 
 
 - Any new sent/received message will appear at the other clients when the DBs are replicated. There is no guarantee of strong consistency, only strong eventual consistency, i.e. once all instances have received all the updates, their state will be the same (no conflicts, divergence).
 
-- Later, the web application's source itself will be loaded into the IPFS node running in the client's service worker, which means that even if the origin server goes unavailable, new clients can still access the page, because the gateways will be able to get and send back the page to the newly joining client from any existing client online. The version to be "pinned" i.e. hosted at the cleints' side too will be obtained either via IPNS by resolving `/ipns/yourdomain.com` or by the application retrieving the hash from the DNS record of the domain.
+- Later, the web application's source itself will be loaded into the IPFS node running in the client's service worker, which means that even if the origin server goes unavailable, new clients can still access the page, because the gateways will be able to get and send back the page to the newly joining client from any existing client online. The web application's version to be "pinned" i.e. hosted at the clients' side will be obtained either via IPNS by resolving `/ipns/yourdomain.com` or by the application retrieving the hash from the DNS record of the domain.
 
 <img src="https://user-images.githubusercontent.com/22678054/64920632-9716ec80-d7c2-11e9-83ac-b57653555538.png" width="500">
 
