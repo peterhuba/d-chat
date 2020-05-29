@@ -29,6 +29,8 @@ Install with: `npm install`
 
 Build with: `npm run build-local`
 
+Install any tool for serving statically the built directory e.g. `npm install -g node-static`
+
 Run it using: `static -p <port>` and go to `localhost:<port>/d-chat`
 
 ### Deploy
